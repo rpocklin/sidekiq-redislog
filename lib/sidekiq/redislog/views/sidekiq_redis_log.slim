@@ -1,0 +1,31 @@
+header.row
+  .span2
+    h3 Redis Log
+  .span10
+    textarea id="logger" style='width: 100%;' rows="20" cols='50' readonly="true"
+
+javascript:
+  var show_logs_for = function(event_channel, event_id, log_id) {
+
+    if (!!window.EventSource) {
+      source = new EventSource(event_channel); // match routes.rb
+
+      element = document.getElementById(log_id); // match template
+
+      source.addEventListener(event_id, function(e) {
+        //firefox has no 'data'
+        if (e.data) data = e.data; else data = e;
+
+        element.innerHTML += data + "\n";
+        element.scrollTop = element.scrollHeight;
+      });
+    }
+    else {
+      // Result to xhr polling :(  TODO
+    }
+  };
+
+  $(function() {
+    show_logs_for('/sidekiq/redis_log_stream', 'redis_log', 'logger')
+  });
+
