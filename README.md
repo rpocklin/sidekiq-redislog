@@ -1,5 +1,4 @@
-# Sidekiq::RedisLog [![Build Status](https://secure.travis-ci.org/rpocklin/sidekiq-redislog.png)](http://travis-ci
-.org/rpocklin/sidekiq-redislog)
+# Sidekiq::RedisLog [![Build Status](https://secure.travis-ci.org/rpocklin/sidekiq-redislog.png)](http://travis-ci.org/rpocklin/sidekiq-redislog)
 
 Displays a monitor window which echos the telnet status log of redis for sidekiq.  Autoscrolls.
 
@@ -45,7 +44,6 @@ Released under the MIT License. See the [LICENSE][license] file for further deta
 
 ## TODO
 
-Get access to the redis URL sidekiq connects with to use for telnet parameters.
 XHR polling (< IE8 etc.)
 Connect/Disconnet buttons since it consumes a thread for the poller.
 

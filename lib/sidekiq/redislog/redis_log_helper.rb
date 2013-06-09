@@ -22,5 +22,18 @@ module Sinatra
 
       telnet_session.close
     end
+
+    def get_redis_config
+
+      config = {:host => 'localhost', :port => 6379}
+
+      Sidekiq.redis do |redis|
+        config[:host] = redis.client.host
+        config[:port] = redis.client.port
+      end
+
+      config
+
+    end
   end
 end

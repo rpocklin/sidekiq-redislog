@@ -21,5 +21,17 @@ module Sidekiq
       last_response.body.must_match /Sidekiq/
       last_response.body.must_match /Redis/
     end
+
+    ## NOTE: requires redis localhost:6379 running
+    it 'can capture redis log via telnet' do
+
+      null_stream = File.open(File::NULL, "w")
+
+      class RedisMonitor
+        include Sinatra::RedisLogHelper
+      end
+
+      RedisMonitor.new.capture_redis null_stream, 'localhost', 6379, 30, 'QUIT'
+    end
  end
 end

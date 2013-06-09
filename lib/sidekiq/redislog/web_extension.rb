@@ -14,9 +14,10 @@ module Sidekiq
         app.get "/redis_log_stream", provides: 'text/event-stream' do
 
           set_sse_headers response
+          config = get_redis_config
 
           stream :keep_open do |stream|
-            capture_redis stream do |data|
+            capture_redis stream, config[:host], config[:port] do |data|
               stream << "event: redis_log\n"
               stream << "data: #{data}\n\n"
             end
