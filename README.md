@@ -13,11 +13,10 @@ Add this line to your application's Gemfile:
 gem 'sidekiq-redislog'
 ```
 
-Start up your rails stack
-Navigate to '/sidekiq' (or your custom remapped route)
-Click 'redis' tab
-You will see activity (at the very least 'OK')
-  you can create activity by opening the other Sidekiq tabs (Dashboard/Workers/etc) in new windows.
+1. Start up your rails stack
+2. Navigate to '/sidekiq' (or your custom remapped route)
+3. Click 'redis' tab
+4. You will see activity (at the very least 'OK' should appear in the text area.)
 
 ## Dependencies
 
@@ -25,7 +24,8 @@ Depends on Sidekiq >= 2.2.1
 
 ## Usage and Modes
 
-When you run your app you will now see an additional tab 'Redis' in the sidekiq web console.
+- When you run your app you will now see an additional tab 'Redis' in the sidekiq web console.
+- You can create activity by opening the other Sidekiq tabs (Dashboard/Workers/etc) in new browser tabs.
 
 ## Contributing
 
@@ -44,8 +44,8 @@ Released under the MIT License. See the [LICENSE][license] file for further deta
 
 ## TODO
 
-XHR polling (< IE8 etc.)
-Connect/Disconnet buttons since it consumes a thread for the poller.
+- XHR polling (< IE8 etc.)
+- Connect/Disconnect buttons since it consumes a thread for the poller.
 
 
 ## Notes
@@ -53,4 +53,5 @@ Connect/Disconnet buttons since it consumes a thread for the poller.
 If you mount sidekiq to a non-standard route ie. mount Sidekiq::Web => '/admin/sidekiq' then you'll have to
 redirect the stream url (which javascript hits via SSE):
   ```match '/sidekiq/redis_log_stream' => redirect('/admin/sidekiq/redis_log_stream')```
+  in ```routes.rb```
 
