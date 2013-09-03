@@ -16,9 +16,3 @@ if Sidekiq::Web.tabs.is_a?(Array)
 else
   Sidekiq::Web.tabs["Redis"] = "redis"
 end
-
-Sidekiq.configure_server do |config|
-  config.server_middleware do |chain|
-    chain.add Sidekiq::RedisLog::Middleware
-  end
-end
