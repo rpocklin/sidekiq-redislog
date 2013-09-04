@@ -4,8 +4,8 @@ require File.expand_path('../lib/sidekiq/redislog/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Robert Pocklington"]
   gem.email         = ["rpocklin@gmail.com"]
-  gem.description   = %q{View redis log for sidekiq on the web}
-  gem.summary       = %q{Allows you to monitor the redis log of sidekiq to track what is happening under the covers.}
+  gem.description   = %q{View redis log for sidekiq under the sidekiq admin page}
+  gem.summary       = %q{Allows you to monitor the redis log of sidekiq to track what is happening under the covers in redis.}
   gem.homepage      = "https://github.com/rpocklin/sidekiq-redislog/"
 
   gem.files         = `git ls-files`.split($\)
@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "sidekiq-redislog"
   gem.require_paths = ["lib"]
   gem.version       = Sidekiq::RedisLog::VERSION
+  gem.license       = 'MIT'
 
   gem.add_dependency "sidekiq", ">= 2.2.1"
   gem.add_dependency "slim"
