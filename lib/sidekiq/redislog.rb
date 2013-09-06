@@ -10,9 +10,11 @@ end
 
 Sidekiq::Web.register Sidekiq::RedisLog::WebExtension
 
-if Sidekiq::Web.tabs.is_a?(Array)
-  # For sidekiq < 2.5
-  Sidekiq::Web.tabs << "redis"
-else
-  Sidekiq::Web.tabs["Redis"] = "redis"
+if defined?(Sidekiq::Web)
+  if Sidekiq::Web.tabs.is_a?(Array)
+    # For sidekiq < 2.5
+    Sidekiq::Web.tabs << "redis"
+  else
+    Sidekiq::Web.tabs["Redis"] = "redis"
+  end
 end

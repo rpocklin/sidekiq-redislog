@@ -1,3 +1,5 @@
+## 0.0.5
+  * Made compatible with Sidekiq 2.14 (changed admin page structure around breaking it).
 ## 0.0.3
   * Fixed licensing issue and updated description
 ## 0.0.2

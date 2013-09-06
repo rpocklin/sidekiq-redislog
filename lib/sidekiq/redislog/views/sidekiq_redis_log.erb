@@ -1,10 +1,9 @@
-header.row
-  .span2
-    h3 Redis Log
-  .span10
-    textarea id="logger" style='width: 100%;' rows="20" cols='50' readonly="true"
+<header>
+    <h3>Redis Log</h3>
+</header>
+<textarea id="logger" style="width: 100%;" rows="20" cols="50" readonly="true"></textarea>
 
-javascript:
+<script>
   var show_logs_for = function(event_channel, event_id, log_id) {
 
     if (!!window.EventSource) {
@@ -27,3 +26,4 @@ javascript:
 
   show_logs_for('/sidekiq/redis_log_stream', 'redis_log', 'logger')
 
+</script>
