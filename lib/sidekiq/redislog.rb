@@ -2,6 +2,7 @@ require "sidekiq/web"
 require "sidekiq/redislog/version"
 require "sidekiq/redislog/redis_log_helper"
 require "sidekiq/redislog/web_extension"
+require "net/telnet"
 
 module Sidekiq
   module RedisLog
