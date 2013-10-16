@@ -7,12 +7,11 @@
   var show_logs_for = function(event_channel, event_id, log_id) {
 
     if (!!window.EventSource) {
-      source = new EventSource(event_channel); // match routes.rb
-
-      element = document.getElementById(log_id); // match template
+      var element = document.getElementById(log_id); // match view template
+      source = new EventSource(event_channel);       // match routes.rb
 
       source.addEventListener(event_id, function(e) {
-        //firefox has no 'data'
+        // firefox has no 'data'
         if (e.data) data = e.data; else data = e;
 
         element.innerHTML += data + "\n";
@@ -20,11 +19,13 @@
       });
     }
     else {
-      // Result to xhr polling :(  TODO
+      if (console && console.log) {
+        console.log('Sorry - This browser does not support server-sent events (SSE).');
+      }
     }
   };
 
   var stream_path = document.location.pathname + '_log_stream';
-  show_logs_for(stream_path, 'redis_log', 'logger')
+  show_logs_for(stream_path, 'redis_log', 'logger');
 
 </script>

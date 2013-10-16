@@ -44,14 +44,11 @@ Released under the MIT License. See the [LICENSE][license] file for further deta
 
 ## TODO
 
-- XHR polling (< IE8 etc.)
 - Connect/Disconnect buttons since it consumes a thread for the poller.
 
 
 ## Notes
 
-If you mount sidekiq to a non-standard route ie. mount Sidekiq::Web => '/admin/sidekiq' then you'll have to
-redirect the stream url (which javascript hits via SSE):
-  ```match '/sidekiq/redis_log_stream' => redirect('/admin/sidekiq/redis_log_stream')```
-  in ```routes.rb```
+If you mount sidekiq to a non-standard route ie. mount Sidekiq::Web => '/admin/sidekiq' it will automatically
+handle remapping of the stream URI.
 

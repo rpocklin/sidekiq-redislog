@@ -2,11 +2,11 @@ module Sinatra
   module RedisLogHelper
     def set_sse_headers response
 
-      response.headers.delete('Content-Length') # no content length
-      response.headers['X-Accel-Buffering'] = 'no' # for nginx
-      response.headers["Connection"]    = "keepalive" #optimisation
-      response.headers["Cache-Control"] = "no-cache, no-store" #important for browsers
-      response.headers['Last-Modified'] = Time.now.to_s # #fixes buffering
+      response.headers.delete('Content-Length')                 # no content length
+      response.headers['X-Accel-Buffering'] = 'no'              # for nginx
+      response.headers["Connection"]    = "keepalive"           # optimisation
+      response.headers["Cache-Control"] = "no-cache, no-store"  # important for browsers
+      response.headers['Last-Modified'] = Time.now.to_s         # fixes buffering
 
     end
 
@@ -33,7 +33,6 @@ module Sinatra
       end
 
       config
-
     end
   end
 end
