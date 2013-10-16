@@ -24,6 +24,7 @@
     }
   };
 
-  show_logs_for('/sidekiq/redis_log_stream', 'redis_log', 'logger')
+  var stream_path = document.location.pathname + '_log_stream';
+  show_logs_for(stream_path, 'redis_log', 'logger')
 
 </script>
